@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Form</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Please enter your name:</p>
+    
+    <!-- Form to input user's name -->
+    <form action="#" method="POST" id="nameForm">
+        <input type="text" name="userName" id="userName" placeholder="Enter your name" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Thank you message will be displayed here after form submission -->
+    <div id="thankYouMessage" style="display: none;">
+        <p>Thank you, <span id="userGreetings"></span>!</p>
+    </div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get the user's name from the input field
+            var userName = document.getElementById("userName").value;
+
+            // Display the thank you message with the user's name
+            document.getElementById("userGreetings").textContent = userName;
+            document.getElementById("nameForm").style.display = "none"; // Hide the form
+            document.getElementById("thankYouMessage").style.display = "block"; // Show the thank you message
+        });
+    </script>
+</body>
+</html>
